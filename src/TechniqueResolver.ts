@@ -18,11 +18,12 @@ export class TechniqueResolver {
         return Technique.find()
     }
 
-    @Query(() => [Technique])
+    @Query(() =>[Technique])
     async filterByRank(
-        @Arg('rank') rank: string
+        @Arg('rank') rank: string,
+        @Arg('category') category: string,
     ){
-        return Technique.find({ where: {rank}})
+        return Technique.find({ where: {rank, category}})
     }
 
     // @Query(() => [Technique])
