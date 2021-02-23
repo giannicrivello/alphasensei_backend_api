@@ -25,6 +25,7 @@ enum Rank {
 @Entity('users')
 export class User extends BaseEntity{
 
+    @Field()
     @PrimaryGeneratedColumn()
     user_id: number;
 

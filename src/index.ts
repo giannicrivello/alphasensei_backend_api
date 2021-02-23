@@ -15,6 +15,7 @@ import { sendRefreshToken } from "./sendRefreshToken";
 import cookieParser = require("cookie-parser");
 import express = require("express");
 import cors = require("cors");
+import { PostResolvers } from "./PostResolver";
 
 
 (async () => {
@@ -62,7 +63,7 @@ app.post('/refresh_token', async (req, res) => {
     
   const apolloServer = new ApolloServer({
      schema: await buildSchema({
-       resolvers: [UserResolver, TechniqueResolver, DrillResolver, GifResolver]
+       resolvers: [UserResolver, TechniqueResolver, DrillResolver, GifResolver, PostResolvers]
      }),
       context: ({ req, res }) => ({ req, res })
   });
